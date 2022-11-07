@@ -34,10 +34,10 @@ def json_data():
         d['drugtype'] = row[9]
         d['age'] = row[-1]
         data_list.append(d)
+        j = json.dumps(data_list)
 
-    j = json.dumps(data_list)
     with open('js\year_data.js', 'w') as f:
-        f.write(j)
+        f.write('let year_data=' +j) #tweaked the this so it starts off in a variable in the js file
     
     c.execute(f'''select * from crime_data''')
 
@@ -60,10 +60,10 @@ def json_data():
         a['drugtype'] = row[9]
         a['age'] = row[-1]
         month_list.append(a)
+        x = json.dumps(month_list)
 
-    x = json.dumps(month_list)
     with open('js\month_data.js', 'w') as f:
-        f.write(x)
+        f.write('let month_data='+x) #tweaked the this so it starts off in a variable in the js file
 
    
 
@@ -86,10 +86,10 @@ def json_data():
         d['drugtype'] = row[9]
         d['age'] = row[-1]
         data_list.append(d)
+        j = json.dumps(data_list)
 
-    j = json.dumps(data_list)
     with open('js\week_data.js', 'w') as f:
-        f.write(j)
+        f.write('let week_data'+j) #tweaked the this so it starts off in a variable in the js file
 
    
 
@@ -112,7 +112,7 @@ def json_data():
         d['drugtype'] = row[9]
         d['age'] = row[-1]
         data_list.append(d)
-
-    j = json.dumps(data_list)
+        j = json.dumps(data_list)
+    
     with open('js/today_data.js', 'w') as f:
-        f.write(j)
+        f.write('let today_data'+j)  #tweaked the this so it starts off in a variable in the js file

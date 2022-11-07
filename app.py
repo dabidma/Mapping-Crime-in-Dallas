@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/')
 def echo():
     pull = data_json.json_data()
-    render_template('index.html', test = pull)
+    return render_template('index.html', test = pull)
 
 
 #debugger to edit while running
