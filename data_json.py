@@ -89,7 +89,7 @@ def json_data():
         j = json.dumps(data_list)
 
     with open('js\week_data.js', 'w') as f:
-        f.write('let week_data'+j) #tweaked the this so it starts off in a variable in the js file
+        f.write('let week_data='+j) #tweaked the this so it starts off in a variable in the js file
 
    
 
@@ -115,4 +115,4 @@ def json_data():
         j = json.dumps(data_list)
     
     with open('js/today_data.js', 'w') as f:
-        f.write('let today_data'+j)  #tweaked the this so it starts off in a variable in the js file
+        f.write('let today_data='+j)  #tweaked the this so it starts off in a variable in the js file
