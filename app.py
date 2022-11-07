@@ -6,18 +6,19 @@ import os
 
 app = Flask(__name__)
 
+#remove files if already exists to upload new data
+try:
+    os.remove('js\month_data.js')
+    os.remove('js/today_data.js')
+    os.remove('js\week_data.js')
+    os.remove('js\year_data.js')
+except:
+    print('no files to be removed')
+#call function to get all the necessary data
+data_json.json_data()
+
 @app.route('/')
 def echo():
-    #remove files if already exists to upload new data
-    try:
-        os.remove('js\month_data.js')
-        os.remove('js/today_data.js')
-        os.remove('js\week_data.js')
-        os.remove('js\year_data.js')
-    except:
-        print('no files to be removed')
-    #call function to get all the necessary data
-    data_json.json_data()
     return render_template('index.html')
 
 
