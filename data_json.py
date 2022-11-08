@@ -65,7 +65,7 @@ def json_data():
     with open('static\js\month_data.js', 'w') as f:
         f.write('let month_data='+x) #tweaked the this so it starts off in a variable in the js file
 
-   
+    c.execute(f'''select * from crime_data''')
 
     c.execute(f"select * from crime_data where ararrestdate >= '{week}'")
 
@@ -73,25 +73,25 @@ def json_data():
     data_list = []
 
     for row in rows:
-        d = collections.OrderedDict()
-        d['incidentnum'] = row[0]
-        d['arrestnumber'] = row[1]
-        d['ararrestdate'] = row[2]
-        d['ararresttime'] = row[3]
-        d['arpremises'] = row[4]
-        d['arladdress'] = row[5]
-        d['arlzip'] = row[6]
-        d['sex'] = row[7]
-        d['drugrelated'] = row[8]
-        d['drugtype'] = row[9]
-        d['age'] = row[-1]
-        data_list.append(d)
-        j = json.dumps(data_list)
+        b = collections.OrderedDict()
+        b['incidentnum'] = row[0]
+        b['arrestnumber'] = row[1]
+        b['ararrestdate'] = row[2]
+        b['ararresttime'] = row[3]
+        b['arpremises'] = row[4]
+        b['arladdress'] = row[5]
+        b['arlzip'] = row[6]
+        b['sex'] = row[7]
+        b['drugrelated'] = row[8]
+        b['drugtype'] = row[9]
+        b['age'] = row[-1]
+        data_list.append(b)
+        week_dump = json.dumps(data_list)
 
     with open('static\js\week_data.js', 'w') as f:
-        f.write('let week_data='+j) #tweaked the this so it starts off in a variable in the js file
+        f.write('let week_data='+week_dump) #tweaked the this so it starts off in a variable in the js file
 
-   
+    c.execute(f'''select * from crime_data''')
 
     c.execute(f"select * from crime_data where ararrestdate >= '{today}'")
 
@@ -99,20 +99,23 @@ def json_data():
     data_list = []
 
     for row in rows:
-        d = collections.OrderedDict()
-        d['incidentnum'] = row[0]
-        d['arrestnumber'] = row[1]
-        d['ararrestdate'] = row[2]
-        d['ararresttime'] = row[3]
-        d['arpremises'] = row[4]
-        d['arladdress'] = row[5]
-        d['arlzip'] = row[6]
-        d['sex'] = row[7]
-        d['drugrelated'] = row[8]
-        d['drugtype'] = row[9]
-        d['age'] = row[-1]
-        data_list.append(d)
-        j = json.dumps(data_list)
+        c = collections.OrderedDict()
+        c['incidentnum'] = row[0]
+        c['arrestnumber'] = row[1]
+        c['ararrestdate'] = row[2]
+        c['ararresttime'] = row[3]
+        c['arpremises'] = row[4]
+        c['arladdress'] = row[5]
+        c['arlzip'] = row[6]
+        c['sex'] = row[7]
+        c['drugrelated'] = row[8]
+        c['drugtype'] = row[9]
+        c['age'] = row[-1]
+        data_list.append(c)
+        today_json = json.dumps(data_list)
     
     with open('static/js/today_data.js', 'w') as f:
-        f.write('let today_data='+j)  #tweaked the this so it starts off in a variable in the js file
+        try:
+            f.write('let today_data='+today_json)  #tweaked the this so it starts off in a variable in the js file
+        except:
+            f.write('let today_data=[]')
