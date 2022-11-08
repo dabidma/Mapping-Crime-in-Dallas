@@ -36,7 +36,7 @@ def json_data():
         data_list.append(d)
         j = json.dumps(data_list)
 
-    with open('js\year_data.js', 'w') as f:
+    with open('static\js\year_data.js', 'w') as f:
         f.write('let year_data=' +j) #tweaked the this so it starts off in a variable in the js file
     
     c.execute(f'''select * from crime_data''')
@@ -62,7 +62,7 @@ def json_data():
         month_list.append(a)
         x = json.dumps(month_list)
 
-    with open('js\month_data.js', 'w') as f:
+    with open('static\js\month_data.js', 'w') as f:
         f.write('let month_data='+x) #tweaked the this so it starts off in a variable in the js file
 
    
@@ -88,7 +88,7 @@ def json_data():
         data_list.append(d)
         j = json.dumps(data_list)
 
-    with open('js\week_data.js', 'w') as f:
+    with open('static\js\week_data.js', 'w') as f:
         f.write('let week_data='+j) #tweaked the this so it starts off in a variable in the js file
 
    
@@ -114,5 +114,5 @@ def json_data():
         data_list.append(d)
         j = json.dumps(data_list)
     
-    with open('js/today_data.js', 'w') as f:
+    with open('static/js/today_data.js', 'w') as f:
         f.write('let today_data='+j)  #tweaked the this so it starts off in a variable in the js file

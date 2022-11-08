@@ -8,10 +8,10 @@ app = Flask(__name__)
 
 #remove files if already exists to upload new data
 try:
-    os.remove('js\month_data.js')
-    os.remove('js/today_data.js')
-    os.remove('js\week_data.js')
-    os.remove('js\year_data.js')
+    os.remove('static\js\month_data.js')
+    os.remove('static/js/today_data.js')
+    os.remove('static\js\week_data.js')
+    os.remove('static\js\year_data.js')
 except:
     print('no files to be removed')
 #call function to get all the necessary data
