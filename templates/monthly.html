@@ -5,19 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crime In Dallas</title>
+    <!-- plotly -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
     <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
-    integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
-    crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+
+
     <!-- Leaflet JavaScript code -->
-    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
-    integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
-    crossorigin="">
-    </script>
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+  integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+  crossorigin=""></script>
+
     <!-- D3 library -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    <!-- personal css file -->
     <link rel="stylesheet" href="../static/css/style.css">
 
 </head>
@@ -40,7 +47,7 @@
                 <a href="https://www.google.com/" target="_blank"> <!-- insert weekly html-->
                     <button class="btn btn-primary btn-lg">Weekly</button>
                 </a>
-                <a href="monthly.html">
+                <a href="/monthly">
                     <button class="btn btn-primary btn-lg">Monthly</button>
                 </a>
                 <a href="https://www.google.com/" target="_blank">  <!-- insert yearly html-->
@@ -54,29 +61,34 @@
         <div class="row">
             <div class="col-md-5">
               <div id="chart1"></div>   
-              <!-- <img src="" alt="sample chart" width="500" height="400"> -->
+              <!-- graphics -->
             </div>
             <div class="col-md-2">
 
             </div>
             <div class="col-md-5">
-              <div id="chart2"></div> 
-              <!-- <img src="" alt="sample chart" width="500" height="400"> -->
+
+              <div id="chart2">
+                <!-- graphics -->
+              </div> 
+
             </div>
         </div>
       
         <div class="row text-center p-2">
-            <div id="bubble">
-              <!-- <img src="" alt="map"> -->
-            </div>
+            
         </div>
       </div>
+    <div class="text-center" id="map">
+        <!-- graphics -->
+    </div>
+
     <!-- insert javascipt files under here -->
     <script type="text/javascript" src="..\static\js\today_data.js"></script>
     <script type="text/javascript" src="..\static\js\week_data.js"></script>
     <script type="text/javascript" src="..\static\js\month_data.js"></script>
     <script type="text/javascript" src="..\static\js\year_data.js"></script>
-    <script type="text/javascript" src="../static/js/monthly_script.js"></script>
+    <script type="text/javascript" src="..\static\js\monthly_script.js"></script>
       
 </body>
 </html>
