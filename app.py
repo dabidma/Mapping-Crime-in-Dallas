@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, url_for
 from flask_pymongo import PyMongo
 import api_data
 import data_json
@@ -21,6 +21,9 @@ data_json.json_data()
 def echo():
     return render_template('index.html')
 
+@app.route('/monthly')
+def month():
+    return render_template('monthly.html')
 @app.route('/weekly')
 def weekly():
     return render_template('weekly.html')
