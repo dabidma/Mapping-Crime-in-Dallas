@@ -72,7 +72,7 @@ def pull():
     c = conn.cursor()
 
     #create table
-    c.execute('CREATE TABLE IF NOT EXISTS crime_data (incidentnum, arrestnumber, ararrestdate, ararresttime, arpremises, arladdress, arlzip, sex, drugrelated, drugtype, age)')
+    c.execute('CREATE TABLE IF NOT EXISTS crime_data (incidentnum, arrestnumber, ararrestdate, ararresttime, arpremises, arladdress, arlzip, sex, drugrelated, drugtype, age, lat, lon)')
     conn.commit()
 
     #send pandas df to sql
