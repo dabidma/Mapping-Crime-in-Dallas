@@ -62,7 +62,7 @@ def json_data():
         a['age'] = row[11]
         a['lat'] = row[12]
         a['lon'] = row[-1]
-        data_list.append(a)
+        month_list.append(a)
         x = json.dumps(month_list)
 
     with open('static\js\month_data.js', 'w') as f:
