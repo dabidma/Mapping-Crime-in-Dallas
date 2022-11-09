@@ -31,7 +31,9 @@ def json_data():
         d['sex'] = row[7]
         d['drugrelated'] = row[8]
         d['drugtype'] = row[9]
-        d['age'] = row[-1]
+        d['age'] = row[10]
+        d['lat'] = row[11]
+        d['lon'] = row[12]
         data_list.append(d)
         j = json.dumps(data_list)
 
@@ -57,7 +59,9 @@ def json_data():
         a['sex'] = row[7]
         a['drugrelated'] = row[8]
         a['drugtype'] = row[9]
-        a['age'] = row[-1]
+        a['age'] = row[10]
+        a['lat'] = row[11]
+        a['lon'] = row[12]
         month_list.append(a)
         x = json.dumps(month_list)
 
@@ -83,7 +87,9 @@ def json_data():
         b['sex'] = row[7]
         b['drugrelated'] = row[8]
         b['drugtype'] = row[9]
-        b['age'] = row[-1]
+        b['age'] = row[10]
+        b['lat'] = row[11]
+        b['lon'] = row[12]
         data_list.append(b)
         week_dump = json.dumps(data_list)
 
@@ -109,7 +115,9 @@ def json_data():
         c['sex'] = row[7]
         c['drugrelated'] = row[8]
         c['drugtype'] = row[9]
-        c['age'] = row[-1]
+        c['age'] = row[10]
+        c['lat'] = row[11]
+        c['lon'] = row[12]
         data_list.append(c)
         today_json = json.dumps(data_list)
     
