@@ -21,6 +21,10 @@ data_json.json_data()
 def echo():
     return render_template('index.html')
 
+@app.route('/weekly')
+def weekly():
+    return render_template('weekly.html')
+
 
 #debugger to edit while running
 if __name__ == "__main__":

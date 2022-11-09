@@ -11,7 +11,6 @@ month = today - datetime.timedelta(days=30)
 year = (today - datetime.timedelta(days=365))
 
 def json_data():
-
     
     conn =sqlite3.connect('data/crime_data')
     c = conn.cursor()
