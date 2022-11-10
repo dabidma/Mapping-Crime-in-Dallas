@@ -4,6 +4,7 @@ import collections
 import psycopg2
 import datetime
 import api_data
+import time
 
 today = datetime.date.today()
 week = today - datetime.timedelta(days=7)
@@ -23,8 +24,8 @@ def json_data():
         d = collections.OrderedDict()
         d['incidentnum'] = row[1]
         d['arrestnumber'] = row[2]
-        d['ararrestdate'] = row[4]
-        d['ararresttime'] = row[5]
+        d['ararrestdate'] = row[3]
+        d['ararresttime'] = row[4]
         d['arpremises'] = row[5]
         d['arladdress'] = row[6]
         d['arlzip'] = row[7]
@@ -44,6 +45,8 @@ def json_data():
 
     c.execute(f"select * from crime_data where ararrestdate >= '{month}'")
 
+    time.sleep(3)
+
     rows = c.fetchall()
     month_list = []
 
@@ -51,8 +54,8 @@ def json_data():
         a = collections.OrderedDict()
         a['incidentnum'] = row[1]
         a['arrestnumber'] = row[2]
-        a['ararrestdate'] = row[4]
-        a['ararresttime'] = row[5]
+        a['ararrestdate'] = row[3]
+        a['ararresttime'] = row[4]
         a['arpremises'] = row[5]
         a['arladdress'] = row[6]
         a['arlzip'] = row[7]
@@ -73,14 +76,14 @@ def json_data():
     c.execute(f"select * from crime_data where ararrestdate >= '{week}'")
 
     rows = c.fetchall()
-    data_list = []
+    week_list = []
 
     for row in rows:
         b = collections.OrderedDict()
         b['incidentnum'] = row[1]
         b['arrestnumber'] = row[2]
-        b['ararrestdate'] = row[4]
-        b['ararresttime'] = row[5]
+        b['ararrestdate'] = row[3]
+        b['ararresttime'] = row[4]
         b['arpremises'] = row[5]
         b['arladdress'] = row[6]
         b['arlzip'] = row[7]
@@ -90,8 +93,8 @@ def json_data():
         b['age'] = row[11]
         b['lat'] = row[12]
         b['lon'] = row[-1]
-        data_list.append(b)
-        week_dump = json.dumps(data_list)
+        week_list.append(b)
+        week_dump = json.dumps(week_list)
 
     with open('static\js\week_data.js', 'w') as f:
         f.write('let week_data='+week_dump) #tweaked the this so it starts off in a variable in the js file
@@ -101,14 +104,14 @@ def json_data():
     c.execute(f"select * from crime_data where ararrestdate >= '{today}'")
 
     rows = c.fetchall()
-    data_list = []
+    day_list = []
 
     for row in rows:
         c = collections.OrderedDict()
         c['incidentnum'] = row[1]
         c['arrestnumber'] = row[2]
-        c['ararrestdate'] = row[4]
-        c['ararresttime'] = row[5]
+        c['ararrestdate'] = row[3]
+        c['ararresttime'] = row[4]
         c['arpremises'] = row[5]
         c['arladdress'] = row[6]
         c['arlzip'] = row[7]
@@ -118,11 +121,12 @@ def json_data():
         c['age'] = row[11]
         c['lat'] = row[12]
         c['lon'] = row[-1]
-        data_list.append(c)
-        today_json = json.dumps(data_list)
+        day_list.append(c)
+        today_json = json.dumps(day_list)
     
     with open('static/js/today_data.js', 'w') as f:
         try:
             f.write('let today_data='+today_json)  #tweaked the this so it starts off in a variable in the js file
         except:
             f.write('let today_data=[]')
+json_data()
