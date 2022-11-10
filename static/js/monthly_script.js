@@ -21,7 +21,7 @@ for (i=0; i<month_data.length;i++) {
     draggable: false,
     title: "My First Marker"
   }).bindPopup(`${item.arladdress} <br> Arrest Time: ${item.ararrestdate}`).openPopup().addTo(myMap)
-}
+};
 
 
 // attempt at heatmap
