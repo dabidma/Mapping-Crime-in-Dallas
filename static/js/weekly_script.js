@@ -2,36 +2,37 @@
 // We set the longitude, latitude, and starting zoom level.
 // This gets inserted into the div with an id of "map".
 let myMap = L.map("map", {
-  center: [32.7767, -96.797],
-  zoom: 10
-
-});
-
-// Adding a tile layer (the background map image) to our map:
-// We use the addTo() method to add objects to our map.
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(myMap);
-// if there is no data for the day, then create pop up message on the map
-if (today_data.length == 0){
-  var popup = L.popup()
-    .setLatLng([32.77, -96.79])
-    .setContent("YAY! No drug arrests were made today!!!")
-    .openOn(myMap);
-  popup.addTo(myMap);
-  console.log('no drug arrests')
-} else{ // if there is data for the day it will add markers with heatmap
-  // add markers
-  for (i=0; i<today_data.length;i++) {
-    let item = month_data[i]
-    console.log([item.lat, item.lon])
-    let marker = L.marker([item.lat, item.lon], {
-      draggable: false
-    }).bindPopup(`<h3>Drug Arrest Found!<h3><h4>${item.sex}, ${item.age}</h4>Arrested for: ${item.drugtype}<br>Arrested at: ${item.arladdress}<br>Time: ${item.ararresttime}<br>`).openPopup().addTo(myMap)
+    center: [32.799, -96.797],
+    zoom: 11
+  
+  });
+  
+  // Adding a tile layer (the background map image) to our map:
+  // We use the addTo() method to add objects to our map.
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(myMap);
+  
+  
+  //------markercluster only--------------
+  var markers = L.markerClusterGroup();
+  
+  // this add marker for every crime 
+  for (i=0; i<week_data.length;i++) {
+  let item = week_data[i]
+  // console.log([item.lat, item.lon])
+    markers.addLayer(L.marker([item.lat, item.lon], {
+    draggable: false
+  })).bindPopup(`<h3>Drug Arrest Found!<h3><h4>${item.sex}, ${item.age}</h4>Arrested for: ${item.drugtype}<br>Arrested at: ${item.arladdress}<br>Time: ${item.ararresttime}<br>`).openPopup()
   };
+  
+  myMap.addLayer(markers);
+  
+  //------------------------------------
+  
   //heatmap----------------------
   var heatArray = [];
-
+  
   for (let i = 0; i < week_data.length; i++) {
     let location = week_data[i];
       heatArray.push([parseFloat(location.lat).toFixed(4), parseFloat(location.lon).toFixed(4), 100]); //we rounded long and lat and gave weight 
@@ -42,11 +43,11 @@ if (today_data.length == 0){
     radius: 20,
     blur: 30
   }).addTo(myMap);
-
-};
-
-if (today_data.length > 0){
-  let today_drugs = today_data.map(data => data.drugtype).filter(data => data != null)
+  
+  
+  //-------get our charts------------------
+  
+  let weekly_drugs = week_data.map(data => data.drugtype).filter(data => data != null)
   let drugs=['Marijuana', 'Cocaine', 'Meth','Heroin','Hydrocone','Ectasy','Oxycodone', 'GHB', 'Ketamine','Other <br>Prescription Drugs','Other <br>Non-Prescription Drugs']
   // create a counter for each drug group so it can be totaled
   let marijuana = 0;
@@ -60,9 +61,9 @@ if (today_data.length > 0){
   let Oxycodone=0;
   let GHB=0;
   let Ketamine=0;
-  //for loop through today_data.js get the drug name and put them in their categories
-  for (let i=0; i<today_data.length; i++) {
-    let item=today_data[i];
+  //for loop through week_data.js get the drug name and put them in their categories
+  for (let i=0; i<week_data.length; i++) {
+    let item=week_data[i];
     
     if (item.drugtype == 'Cultivated Marijuana' || item.drugtype == 'Processed Marijuana' ){marijuana++} 
     else if (item.drugtype ==  'Methamphetamine'){meth++}
@@ -138,8 +139,8 @@ if (today_data.length > 0){
   let num_males =0
   let num_females=0
   // for loops through your data to get number of male and females
-  for (let i=0; i<today_data.length; i++) {
-  let item=today_data[i];
+  for (let i=0; i<week_data.length; i++) {
+  let item=week_data[i];
   
   if (item.sex == "Male"){num_males++} 
   else{
@@ -172,9 +173,7 @@ if (today_data.length > 0){
   };
   
   Plotly.newPlot('chart2', pie_data, pie_layout);
-
-}else {
-  var confettiSettings = { target: 'my-canvas' , size: 2.5, clock: 18};
-  var confetti = new ConfettiGenerator(confettiSettings);
-  confetti.render();
-};
+  
+  
+  
+  

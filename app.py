@@ -23,6 +23,9 @@ def month():
 @app.route('/weekly')
 def weekly():
     return render_template('weekly.html')
+@app.route('/yearly')
+def yearly():
+    return render_template('yearly.html')
 #debugger to edit while running
 if __name__ == "__main__":
     app.run(debug=True)
