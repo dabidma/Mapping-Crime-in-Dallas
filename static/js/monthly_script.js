@@ -14,7 +14,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(myMap);
 
 
-//------markers only--------------
+//------markercluster only--------------
 var markers = L.markerClusterGroup();
 
 // this add marker for every crime 
