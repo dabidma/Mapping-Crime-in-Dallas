@@ -1,4 +1,4 @@
-### Group 4 - Project 3 ###
+###Group 4 - Project 3###
  (David Ma, Yonas Michael, Kyle Admire, Michel Gnancalo)
 
 ###Intro - Drug Related Crimes###
