@@ -23,12 +23,15 @@ if (today_data.length == 0){
 } else{ // if there is data for the day it will add markers with heatmap
   // add markers
   for (i=0; i<today_data.length;i++) {
-    let item = month_data[i]
-    console.log([item.lat, item.lon])
-    let marker = L.marker([item.lat, item.lon], {
-      draggable: false
-    }).bindPopup(`<h3>Drug Arrest Found!<h3><h4>${item.sex}, ${item.age}</h4>Arrested for: ${item.drugtype}<br>Arrested at: ${item.arladdress}<br>Time: ${item.ararresttime}<br>`).openPopup().addTo(myMap)
-  };
+    let item = today_data[i]
+  // console.log([item.lat, item.lon])
+    markers.addLayer(L.marker([item.lat, item.lon], {
+    draggable: false
+  }).bindPopup(`<h3>Drug Arrest Found!<h3><h4>${item.sex}, ${item.age}</h4>Arrested for: ${item.drugtype}<br>Arrested at: ${item.arladdress}<br>Time: ${item.ararresttime}<br>`).openPopup()) 
+};
+  
+  myMap.addLayer(markers);
+  
   //heatmap----------------------
   var heatArray = [];
 

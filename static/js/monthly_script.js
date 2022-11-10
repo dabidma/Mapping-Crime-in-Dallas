@@ -23,7 +23,7 @@ let item = month_data[i]
 // console.log([item.lat, item.lon])
   markers.addLayer(L.marker([item.lat, item.lon], {
   draggable: false
-})).bindPopup(`<h3>Drug Arrest Found!<h3><h4>${item.sex}, ${item.age}</h4>Arrested for: ${item.drugtype}<br>Arrested at: ${item.arladdress}<br>Time: ${item.ararresttime}<br>`).openPopup()
+}).bindPopup(`<h3>Drug Arrest Found!<h3><h4>${item.sex}, ${item.age}</h4>Arrested for: ${item.drugtype}<br>Arrested at: ${item.arladdress}<br>Time: ${item.ararresttime}<br>`).openPopup()) 
 };
 
 myMap.addLayer(markers);
