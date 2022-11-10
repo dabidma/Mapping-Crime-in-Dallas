@@ -35,7 +35,7 @@ let myMap = L.map("map", {
   
   for (let i = 0; i < year_data.length; i++) {
     let location = year_data[i];
-      heatArray.push([parseFloat(location.lat).toFixed(4), parseFloat(location.lon).toFixed(4), 100]); //we rounded long and lat and gave weight 
+      heatArray.push([parseFloat(location.lat).toFixed(4), parseFloat(location.lon).toFixed(4), 10]); //we rounded long and lat and gave weight 
   }
   
   console.log(heatArray)
