@@ -20,10 +20,6 @@
 
     <!-- D3 library -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
-
-    <!-- Marker cluster CSS -->
-    <!-- <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css"> -->
  
     <!-- plotly -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -35,7 +31,7 @@
     <link rel="stylesheet" href="../static/css/style.css">
 
 </head>
-<body>
+<body class="monthly">
     <div class="container">
         <div class="row">
           <div class="col-md-12 jumbotron text-center">
@@ -47,23 +43,26 @@
           <div class="col-md-12 text-center">
             <div class="well">
               <h3 class="text-center"> <strong> Choose your timeframe:</strong></h3>
-            <div class="container">
-                <a href="/"  >   
-                    <button class="btn btn-primary btn-lg">Today</button>
-                </a>
-                <a href="https://www.google.com/" target="_blank"> <!-- insert weekly html-->
-                    <button class="btn btn-primary btn-lg">Weekly</button>
-                </a>
-                <a href="/monthly">
-                    <button class="btn btn-primary btn-lg">Monthly</button>
-                </a>
-                <a href="https://www.google.com/" target="_blank">  <!-- insert yearly html-->
-                    <button class="btn btn-primary btn-lg">Yearly</button> 
-                </a>
-            </div>
-              
+              <div class="container">
+                  <a href="/"  >   
+                      <button class="btn btn-primary btn-lg">Today</button>
+                  </a>
+                  <a href="https://www.google.com/" target="_blank"> <!-- insert weekly html-->
+                      <button class="btn btn-primary btn-lg">Weekly</button>
+                  </a>
+                  <a href="/monthly">
+                      <button class="btn btn-primary btn-lg">Monthly</button>
+                  </a>
+                  <a href="https://www.google.com/" target="_blank">  <!-- insert yearly html-->
+                      <button class="btn btn-primary btn-lg">Yearly</button> 
+                  </a>
+              </div>
             </div>
           </div>
+        </div>
+      </div>
+        <div id="map">
+          <!-- graphics -->
         </div>
         <div class="row">
             <div class="col-md-5">
@@ -81,17 +80,7 @@
 
             </div>
         </div>
-      
-        <div class="row text-center p-2">
-            
-        </div>
-      </div>
-    <div class="text-center" id="map">
-        <!-- graphics -->
-    </div>
-
     <!-- insert javascipt files under here -->
-    <!-- <script type="text/javascript" src="..\static\js\leaflet.js"></script> -->
     <script type="text/javascript" src="..\static\js\today_data.js"></script>
     <script type="text/javascript" src="..\static\js\week_data.js"></script>
     <script type="text/javascript" src="..\static\js\month_data.js"></script>

@@ -2,12 +2,14 @@
 body {
     padding: 0;
     margin: 0;
+    background-color:grey;
   }
   
   /* Set map, body, and html to 100% of the screen size. */
   #chart1 {
     position: relative;
-    margin-left: -50%;
+    /* margin-bottom: 20%; */
+    margin-left: 20%;
   }
   #map {
     position: relative;
