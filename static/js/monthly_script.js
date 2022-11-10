@@ -92,7 +92,7 @@ title: {text:"Popular Drugs During Arrests",
       },
 paper_bgcolor: 'lightgrey',
 plot_bgcolor: 'rgba(245,246,249,1)',
-width: 1150,
+width: 1000,
 height: 600,
 font:{
   family: 'Roboto, monospace'

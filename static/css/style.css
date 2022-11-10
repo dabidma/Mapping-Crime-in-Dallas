@@ -9,13 +9,14 @@ body {
   #chart1 {
     position: relative;
     /* margin-bottom: 20%; */
-    margin-left: 5%;
+    margin-left: 20%;
     margin-bottom: 10%;
   }
 
   #chart2 {
     position: relative;
-    margin-left: 50%;
+    margin-left: 55%;
+    
   }
   #map {
     position: relative;
