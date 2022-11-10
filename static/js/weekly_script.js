@@ -19,12 +19,12 @@ let myMap = L.map("map", {
   
   // this add marker for every crime 
   for (i=0; i<week_data.length;i++) {
-  let item = week_data[i]
+    let item = week_data[i]
   // console.log([item.lat, item.lon])
     markers.addLayer(L.marker([item.lat, item.lon], {
     draggable: false
-  })).bindPopup(`<h3>Drug Arrest Found!<h3><h4>${item.sex}, ${item.age}</h4>Arrested for: ${item.drugtype}<br>Arrested at: ${item.arladdress}<br>Time: ${item.ararresttime}<br>`).openPopup()
-  };
+  }).bindPopup(`<h3>Drug Arrest Found!<h3><h4>${item.sex}, ${item.age}</h4>Arrested for: ${item.drugtype}<br>Arrested at: ${item.arladdress}<br>Time: ${item.ararresttime}<br>`).openPopup()) 
+};
   
   myMap.addLayer(markers);
   
