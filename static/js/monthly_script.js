@@ -2,8 +2,8 @@
 // We set the longitude, latitude, and starting zoom level.
 // This gets inserted into the div with an id of "map".
 let myMap = L.map("map", {
-    center: [32.7767, -96.797],
-    zoom: 12
+    center: [32.799, -96.797],
+    zoom: 10
   
   });
   
@@ -12,11 +12,40 @@ let myMap = L.map("map", {
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(myMap);
+//---------------------
+//this add marker for every crime 
+for (i=0; i<month_data.length;i++) {
+  let item = month_data[i]
+  console.log([item.lat, item.lon])
+  let marker = L.marker([item.lat, item.lon], {
+    draggable: false,
+    title: "My First Marker"
+  }).bindPopup(`${item.arladdress} <br> Arrest Time: ${item.ararrestdate}`).openPopup().addTo(myMap)
+}
 
-  
+
+// attempt at heatmap
+console.log(month_data)
+// let heatArray = [];
+
+// for (let i = 0; i < month_data.length; i++) {
+//   let location = month_data[i];
+//     console.log([[location.lat, location.lon]])
+//     heatArray.push([location.lat, location.lon]);
+// }
+
+// // console.log(heatArray)
+// let heat = L.heatLayer(heatArray, {
+//   radius: 20,
+//   blur: 35
+// }).addTo(myMap);
+
+
+//-------------------------
+
 let monthly_drugs = month_data.map(data => data.drugtype).filter(data => data != null)
 let drugs=['Marijuana', 'Cocaine', 'Methamphetamine','Heroin','Hydrocone','Ectasy','Oxycodone', 'GHB', 'Ketamine','Other Prescription Drugs','Other Non-Prescription Drugs']
-console.log(monthly_drugs)
+// console.log(monthly_drugs)
 let marijuana = 0;
 let meth = 0;
 let coke=0;
@@ -45,24 +74,40 @@ for (let i=0; i<month_data.length; i++) {
 
     
 };
-// console.log(marijuana)
-// console.log(meth)
-// console.log(coke)
-// console.log(heroin)
-// console.log(otherNPdrug)
-// console.log(otherPDrug)
-// console.log(GHB)
-// console.log(Ketamine)
 let trace1 = {
     x: drugs,
     y: [marijuana,coke,meth,heroin,hydrocodone, ectasy, Oxycodone,GHB, Ketamine, otherPDrug,otherNPdrug],
-    type: 'bar'
+    type: 'bar',
+    marker:{color: 'rgb(142,124,195)'}
   };
   
   let data = [trace1];
   
   let layout = {
-    title: "A Plotly plot"
+    title: "Popular Drugs During Arrests",
+    width: 700,
+    height: 500,
+    font:{
+      family: 'Roboto, monospace'
+    },
+    xaxis: {
+      title: {
+        text: 'Drug Name',
+        font: {
+          family: 'Roboto, monospace',
+          size: 25
+        }
+      },
+    }, 
+    yaxis: {
+      title: {
+        text: 'Number of Arrests',
+        font: {
+          family: 'Roboto, monospace',
+          size: 25
+        }
+      },
+    },
   };
   
   Plotly.newPlot("chart1", data, layout);

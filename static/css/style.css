@@ -5,9 +5,13 @@ body {
   }
   
   /* Set map, body, and html to 100% of the screen size. */
+  #chart1 {
+    position: relative;
+    margin-left: -50%;
+  }
   #map {
     position: relative;
-    height:60%;
+    height:70%;
     width: 50%;
     margin-left: 25%;
     margin-top: 5%;
