@@ -44,7 +44,7 @@ var heat = L.heatLayer(heatArray, {
 //-------get our charts------------------
 
 let monthly_drugs = month_data.map(data => data.drugtype).filter(data => data != null)
-let drugs=['Marijuana', 'Cocaine', 'Meth','Heroin','Hydrocone','Ectasy','Oxycodone', 'GHB', 'Ketamine','Other Prescription Drugs','Other Non-Prescription Drugs']
+let drugs=['Marijuana', 'Cocaine', 'Meth','Heroin','Hydrocone','Ectasy','Oxycodone', 'GHB', 'Ketamine','Other <br>Prescription Drugs','Other <br>Non-Prescription Drugs']
 // create a counter for each drug group so it can be totaled
 let marijuana = 0;
 let meth = 0;
@@ -80,32 +80,34 @@ let trace1 = {
   x: drugs,
   y: [marijuana,coke,meth,heroin,hydrocodone, ectasy, Oxycodone,GHB, Ketamine, otherPDrug,otherNPdrug],
   type: 'bar',
-  marker:{color: 'rgb(142,124,195)'}
+  marker:{color: ['rgb(84,176,17)','rgb(70,0,60)','rgb(166,166,40)','rgb(0,124,195)','rgb(0,0,195)','rgb(97,0,73)','rgb(0,124,0)','rgb(7,95,200)','rgb(142,124,195)','rgb(255,50,255)','rgb(229,137,20)']}
 };
 
 let data = [trace1];
 
 //a bunch of formatting for bar chart
 let layout = {
-title: "Popular Drugs During Arrests",
-font: {
-  size: 30,
-},
-width: 700,
-height: 450,
+title: {text:"Popular Drugs During Arrests",
+        font:{size: 30}
+      },
+paper_bgcolor: 'lightgrey',
+plot_bgcolor: 'rgba(245,246,249,1)',
+width: 1150,
+height: 600,
 font:{
   family: 'Roboto, monospace'
 },
 xaxis: {
+  automargin: true,
   title: {
     text: 'Drug Name',
     font: {
       family: 'Roboto, monospace',
-      size: 30
+      size: 25
     }
   },
   tickfont: {
-    size: 14,
+    size: 15,
     color: 'black'
   },
   anchor: 'free'
@@ -115,14 +117,15 @@ yaxis: {
     text: 'Number of Arrests',
     font: {
       family: 'Roboto, monospace',
-      size: 20
+      size: 25
     }
   },
   tickfont: {
     size: 20,
     color: 'black'
-  },
-  margin: {"t": 60, "b": 0, "l": 10, "r": 10}
+  }
+  
+  
 },
 };
 
@@ -139,11 +142,7 @@ if (item.sex == "Male"){num_males++}
 else{
   num_females++
 }
-
 };
-//just to check they return numbers
-// console.log(num_females) 
-// console.log(num_males)
 
 //pie plotly with num_male and num_females
 let pie_data = [{
@@ -160,11 +159,12 @@ textinfo: "label+percent",
 
 let pie_layout = {
 title:'The Percent of Arrest Men vs Women',
-font:{size:15},
+font:{family: 'Roboto, monospace',size:20},
+paper_bgcolor: 'lightgrey',
 height: 500,
 width: 600,
 showlegend:false,
-margin: {"t": 70, "b": 10, "l": 10, "r": 10}
+margin: {"t": 100, "b": 10, "l": 10, "r": 10}
 
 };
 
