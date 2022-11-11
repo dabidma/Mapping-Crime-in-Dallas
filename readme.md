@@ -4,7 +4,7 @@
 ###Intro - Drug Related Crimes###
  DFW has always been a large city. It ranks #3, behind Houston and San Antonio, for population size in Texas. With multiple airports, sports teams, and great social settings, it provides for approximately 7.6 million people as of 2020. With that said there are certain areas that you may want to inform yourself about when cosidering living arrangements and entertainment. 
  
- Did you know that you can gather quite a bit of knowledge (i.e.: Address, Sex, Age, Arrest Time, Charge Type, Drug Type, etc.) made readily available right here online? Using the City of Dallas crime database, our group analyzed the details of the recent arrest reports in the city.
+ Did you know that you can gather recent arrest information (i.e.: Address, Sex, Age, Arrest Time, Charge Type, Drug Type, etc.) made readily available right here online? Using the City of Dallas crime database, our group analyzed the details of the recent arrest reports in the city.
 
 ###Recap###
 
