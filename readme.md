@@ -1,35 +1,18 @@
-###Group 4 - Project 3###
- (David Ma, Yonas Michael, Kyle Admire, Michel Gnancalo)
-
-###Intro - Drug Related Crimes###
- DFW has always been a large city. It ranks #3, behind Houston and San Antonio, for population size in Texas. With multiple airports, sports teams, and great social settings, it provides for approximately 7.6 million people as of 2020. With that said there are certain areas that you may want to inform yourself about when cosidering living arrangements and entertainment. 
- 
- Did you know that you can gather recent arrest information (i.e.: Address, Sex, Age, Arrest Time, Charge Type, Drug Type, etc.) made readily available right here online? Using the City of Dallas crime database, our group analyzed the details of the recent arrest reports in the city.
-
-###Recap###
-
- #Find Data#
-  Dallas Open Data - Police Arrests
-
- #Filter, Clean, Reduce Data#
-  Using Jupyter Notebook​
-  Data filter for only drug arrests​
-  Began with 65 columns reduced to 11​
-  Certain columns formatted for easier manipulation​
-  Retrieved the latitude and longitude with GeoPy library​
-  Created a function called json_data to create a JavaScript file from data based on daily, weekly, monthly, and yearly timeframes
-
-#SQLite Database Connection#
-
-#Python | Flask#
-
-#Begin Web-Design#
-  Created buttons for users to choose between the different timeframes ​
-  Created a button to access the raw data ​
-
-#JS Manipulation#
-  Plotly​
-  Created bar graph based on drugs​
-  Created pie based on gender​
-  Leaflet ​Heatmap plugin​
-  Markercluster plugin​
+# Drug Arrest Data Visualized in Dallas, TX
+##### By: David Ma, Yonis Michael, Kyle Admire, and Michel Gnancalo 
+Our goal for this project was to gather data provided by the [city of dallas](https://www.dallasopendata.com/Public-Safety/Police-Arrests/sdr7-6v3j) for when and where a drug related arrest was made and then visualizing it on an interactive map. With the API provided by the site, we created a function to import the data as a pandas dataframe, filtered for what was necessary, find the geolocations of each arrest using geopy, and then uploading the data into a SQLite file.
+***
+## Languages used for this project
+|Python|HTML|PostgreSQL|
+|---|---|---|
+|Flask|JavaScript|SQLite|
+|Pandas| JS Libraries | psycopg2|
+|API Calls| CSS
+***
+## Modifying the data
+With the data provided, we were only wanting to display public information that would be necessary and not include personal information. We reduced the amount of columns to 13, originially 65, to not present personal information and then used geopy to grab the longitude and latitudes for plotting on the map. We chose to display any arrest correlated to drugs whether if it was definitely drug related or considered unknown. With the new modified data, we created time frame filters, a couple of charts, and a heat map.
+***
+## Problems we ran into
+* With the given time frame for our project, we weren't able to implement a way to update the data. Because of this, the app has a long run time when pulling data from the api, deleting the previous database, then creating a new database.
+* Geopy is a free module so grabbing the lon/lat for each arrest added more time for such a big database.
+* Our plots were rushed which ended up giving a subpar result.
