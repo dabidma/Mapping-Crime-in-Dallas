@@ -1,6 +1,6 @@
 # Drug Arrest Data Visualized in Dallas, TX
 ##### By: David Ma, Yonis Michael, Kyle Admire, and Michel Gnancalo 
-Our goal for this project was to gather data provided by the [city of dallas](https://www.dallasopendata.com/Public-Safety/Police-Arrests/sdr7-6v3j) for when and where a drug related arrest was made and then visualizing it on an interactive map. With the API provided by the site, we created a function to import the data as a pandas dataframe, filtered for what was necessary, find the geolocations of each arrest using geopy, and then uploading the data into a SQLite file.
+Our goal for this project was to gather data provided by the [City of Dallas](https://www.dallasopendata.com/Public-Safety/Police-Arrests/sdr7-6v3j) for when and where a drug related arrest was made and then visualizing it on an interactive map. With the API provided by the site, we created a function to import the data as a pandas dataframe, filtered for what was necessary, find the geolocations of each arrest using geopy, and then uploading the data into a SQLite file.
 ***
 ## Languages used for this project
 |Python|HTML|PostgreSQL|
